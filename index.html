@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>College Portal</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+
+    background-image:
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("college.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:20px;
+
+    color:white;
+
+    overflow:hidden;
+}
+
+.container{
+
+    width:100%;
+    max-width:420px;
+
+    background:rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+h1{
+
+    text-align:center;
+
+    margin-bottom:20px;
+
+    font-size:28px;
+
+    color:#38bdf8;
+}
+
+.tabs{
+
+    display:flex;
+
+    margin-bottom:20px;
+}
+
+.tabs button{
+
+    flex:1;
+
+    padding:12px;
+
+    border:none;
+
+    cursor:pointer;
+
+    background:#1e293b;
+
+    color:white;
+
+    font-size:16px;
+
+    transition:0.3s;
+}
+
+.tabs button:hover{
+
+    background:#38bdf8;
+
+    transform:scale(1.05);
+}
+
+.tabs button.active{
+
+    background:#0ea5e9;
+}
+
+form{
+    display:none;
+}
+
+form.active{
+    display:block;
+}
+
+.input-group{
+    margin-bottom:18px;
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:6px;
+
+    font-size:14px;
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    outline:none;
+
+    transition:0.3s;
+
+    font-size:15px;
+}
+
+input:focus,
+select:focus{
+
+    transform:scale(1.02);
+
+    box-shadow:0 0 10px #38bdf8;
+}
+
+.error{
+
+    color:#f87171;
+
+    font-size:13px;
+
+    margin-top:5px;
+}
+
+button.submit-btn{
+
+    width:100%;
+
+    padding:13px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0ea5e9;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+    position:relative;
+}
+
+button.submit-btn:hover{
+
+    background:#38bdf8;
+}
+
+.welcome{
+
+    display:none;
+
+    text-align:center;
+}
+
+.welcome h2{
+
+    color:#38bdf8;
+
+    margin-bottom:10px;
+}
+
+@media(max-width:480px){
+
+    .container{
+        padding:20px;
+    }
+
+    h1{
+        font-size:24px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>College Portal</h1>
+
+    <div class="tabs">
+
+        <button class="active"
+        onclick="showForm('signup')">
+
+        Sign Up
+
+        </button>
+
+        <button onclick="showForm('login')">
+
+        Login
+
+        </button>
+
+    </div>
+
+    <!-- SIGNUP FORM -->
+
+    <form id="signup" class="active">
+
+        <div class="input-group">
+
+            <label>Student Name</label>
+
+            <input 
+            type="text"
+            id="name"
+            placeholder="Enter your name">
+
+            <div class="error" id="nameError"></div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Roll Number</label>
+
+            <input 
+            type="text"
+            id="roll"
+            placeholder="Enter roll number">
+
+            <div class="error" id="rollError"></div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Department</label>
+
+            <select id="department">
+
+                <option value="">
+                    Select Department
+                </option>
+
+                <option>CSE</option>
+                <option>IT</option>
+                <option>ECE</option>
+                <option>EEE</option>
+                <option>MECH</option>
+
+            </select>
+
+            <div class="error" id="deptError"></div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Year</label>
+
+            <select id="year">
+
+                <option value="">
+                    Select Year
+                </option>
+
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+                <option>4th Year</option>
+
+            </select>
+
+            <div class="error" id="yearError"></div>
+
+        </div>
+
+        <button type="submit" class="submit-btn">
+
+            Register
+
+        </button>
+
+    </form>
+
+    <!-- LOGIN FORM -->
+
+    <form id="login">
+
+        <div class="input-group">
+
+            <label>Student Name</label>
+
+            <input 
+            type="text"
+            id="loginName"
+            placeholder="Enter your name">
+
+            <div class="error" id="loginNameError"></div>
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Roll Number</label>
+
+            <input 
+            type="text"
+            id="loginRoll"
+            placeholder="Enter roll number">
+
+            <div class="error" id="loginRollError"></div>
+
+        </div>
+
+        <button 
+        type="submit"
+        class="submit-btn"
+        id="loginBtn">
+
+        Login
+
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+function showForm(formId){
+
+    document.querySelectorAll("form")
+    .forEach(form=>{
+
+        form.classList.remove("active");
+
+    });
+
+    document.querySelectorAll(".tabs button")
+    .forEach(btn=>{
+
+        btn.classList.remove("active");
+
+    });
+
+    document.getElementById(formId)
+    .classList.add("active");
+
+    event.target.classList.add("active");
+}
+//hoover mouse
+
+
+
+document.addEventListener("mousemove",(e)=>{
+
+   let x = e.clientX / window.innerWidth;
+   let y = e.clientY / window.innerHeight;
+
+   document.querySelector(".container")
+   .style.transform = `
+   rotateY(${x*10}deg)
+   rotateX(${y*10}deg)
+   `;
+
+});
+
+
+/* SIGNUP VALIDATION */
+
+document.getElementById("signup")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    let name =
+    document.getElementById("name")
+    .value.trim();
+
+    let roll =
+    document.getElementById("roll")
+    .value.trim();
+
+    let department =
+    document.getElementById("department")
+    .value;
+
+    let year =
+    document.getElementById("year")
+    .value;
+
+    let valid = true;
+
+    document.getElementById("nameError")
+    .innerText="";
+
+    document.getElementById("rollError")
+    .innerText="";
+
+    document.getElementById("deptError")
+    .innerText="";
+
+    document.getElementById("yearError")
+    .innerText="";
+
+    /* NAME */
+
+    if(name===""){
+
+        document.getElementById("nameError")
+        .innerText="This field is mandatory";
+
+        valid=false;
+    }
+
+    else if(!/^[A-Za-z ]+$/.test(name)){
+
+        document.getElementById("nameError")
+        .innerText="Only alphabets allowed";
+
+        valid=false;
+    }
+
+    /* ROLL */
+
+    if(roll===""){
+
+        document.getElementById("rollError")
+        .innerText="This field is mandatory";
+
+        valid=false;
+    }
+
+    else if(!/^[0-9]+$/.test(roll)){
+
+        document.getElementById("rollError")
+        .innerText="Only numbers allowed";
+
+        valid=false;
+    }
+
+    /* DEPARTMENT */
+
+    if(department===""){
+
+        document.getElementById("deptError")
+        .innerText="Please select department";
+
+        valid=false;
+    }
+
+    /* YEAR */
+
+    if(year===""){
+
+        document.getElementById("yearError")
+        .innerText="Please select year";
+
+        valid=false;
+    }
+
+    if(valid){
+
+        localStorage.setItem("studentName",name);
+
+        localStorage.setItem("studentRoll",roll);
+
+        alert("Registration Successful ✅");
+
+        showLogin();
+    }
+
+});
+
+/* SHOW LOGIN */
+
+function showLogin(){
+
+    document.querySelectorAll("form")
+    .forEach(form=>{
+
+        form.classList.remove("active");
+
+    });
+
+    document.getElementById("login")
+    .classList.add("active");
+
+    document.querySelectorAll(".tabs button")[0]
+    .classList.remove("active");
+
+    document.querySelectorAll(".tabs button")[1]
+    .classList.add("active");
+}
+
+/* LOGIN BUTTON RUN EFFECT */
+
+const loginBtn =
+document.getElementById("loginBtn");
+
+loginBtn.addEventListener("mouseover",function(){
+
+    let loginName =
+    document.getElementById("loginName")
+    .value.trim();
+
+    let loginRoll =
+    document.getElementById("loginRoll")
+    .value.trim();
+
+    /* EMPTY FIELDS */
+
+    if(loginName === "" || loginRoll === ""){
+
+        let x =
+        Math.random() * 250 - 125;
+
+        let y =
+        Math.random() * 120 - 60;
+
+        loginBtn.style.transform =
+        `translate(${x}px, ${y}px)`;
+
+    }
+
+    /* FILLED */
+
+    else{
+
+        loginBtn.style.transform =
+        "translate(0px,0px)";
+    }
+
+});
+
+/* LOGIN VALIDATION */
+
+document.getElementById("login")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+    let loginName =
+    document.getElementById("loginName")
+    .value.trim();
+
+    let loginRoll =
+    document.getElementById("loginRoll")
+    .value.trim();
+
+    let valid = true;
+
+    document.getElementById("loginNameError")
+    .innerText="";
+
+    document.getElementById("loginRollError")
+    .innerText="";
+
+    if(loginName===""){
+
+        document.getElementById("loginNameError")
+        .innerText="This field is mandatory";
+
+        valid=false;
+    }
+
+    if(loginRoll===""){
+
+        document.getElementById("loginRollError")
+        .innerText="This field is mandatory";
+
+        valid=false;
+    }
+
+    let savedName =
+    localStorage.getItem("studentName");
+
+    let savedRoll =
+    localStorage.getItem("studentRoll");
+
+    if(valid){
+
+        if(loginName===savedName &&
+        loginRoll===savedRoll){
+
+            localStorage.setItem(
+            "loginStudent",
+            loginName
+            );
+
+            window.location.href =
+            "welcome.html";
+
+        }
+
+        else{
+
+            alert("Invalid Login Details ❌");
+        }
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
