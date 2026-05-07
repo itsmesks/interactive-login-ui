@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>College Portal</title>
 
@@ -12,13 +16,16 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
 
     background-image:
-    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    linear-gradient(
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)
+    ),
     url("college.png");
 
     background-size:cover;
@@ -35,40 +42,60 @@ body{
 
     color:white;
 
-    overflow:hidden;
+    overflow-x:hidden;
 }
+
+/* CONTAINER */
 
 .container{
 
     width:100%;
+
     max-width:420px;
 
-    background:rgba(255,255,255,0.08);
+    margin:auto;
 
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border:1px solid
+    rgba(255,255,255,0.15);
 
     border-radius:20px;
 
-    padding:25px;
+    padding:30px 25px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,0.4);
+    box-shadow:
+    0 10px 30px
+    rgba(0,0,0,0.4);
 
     animation:fadeIn 1s ease;
+
+    transition:0.3s;
 }
+
+/* ANIMATION */
 
 @keyframes fadeIn{
 
     from{
+
         opacity:0;
+
         transform:translateY(20px);
     }
 
     to{
+
         opacity:1;
+
         transform:translateY(0);
     }
-
 }
+
+/* TITLE */
 
 h1{
 
@@ -81,9 +108,13 @@ h1{
     color:#38bdf8;
 }
 
+/* TABS */
+
 .tabs{
 
     display:flex;
+
+    gap:10px;
 
     margin-bottom:20px;
 }
@@ -95,6 +126,8 @@ h1{
     padding:12px;
 
     border:none;
+
+    border-radius:10px;
 
     cursor:pointer;
 
@@ -111,13 +144,15 @@ h1{
 
     background:#38bdf8;
 
-    transform:scale(1.05);
+    transform:scale(1.03);
 }
 
 .tabs button.active{
 
     background:#0ea5e9;
 }
+
+/* FORMS */
 
 form{
     display:none;
@@ -127,7 +162,10 @@ form.active{
     display:block;
 }
 
+/* INPUT GROUP */
+
 .input-group{
+
     margin-bottom:18px;
 }
 
@@ -140,22 +178,31 @@ label{
     font-size:14px;
 }
 
+/* INPUTS */
+
 input,
 select{
 
     width:100%;
 
-    padding:12px;
+    padding:14px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
     outline:none;
 
     transition:0.3s;
 
-    font-size:15px;
+    font-size:16px;
+
+    min-height:50px;
+
+    background:
+    rgba(255,255,255,0.9);
+
+    color:#111;
 }
 
 input:focus,
@@ -163,33 +210,42 @@ select:focus{
 
     transform:scale(1.02);
 
-    box-shadow:0 0 10px #38bdf8;
+    box-shadow:
+    0 0 10px #38bdf8;
 }
+
+/* ERRORS */
 
 .error{
 
-    color:#f87171;
+    color:#ff7b7b;
 
     font-size:13px;
 
     margin-top:5px;
 }
 
+/* BUTTON */
+
 button.submit-btn{
 
     width:100%;
 
-    padding:13px;
+    min-height:52px;
+
+    padding:14px;
 
     border:none;
 
-    border-radius:10px;
+    border-radius:12px;
 
     background:#0ea5e9;
 
     color:white;
 
     font-size:17px;
+
+    font-weight:bold;
 
     cursor:pointer;
 
@@ -203,30 +259,56 @@ button.submit-btn:hover{
     background:#38bdf8;
 }
 
-.welcome{
-
-    display:none;
-
-    text-align:center;
-}
-
-.welcome h2{
-
-    color:#38bdf8;
-
-    margin-bottom:10px;
-}
+/* MOBILE */
 
 @media(max-width:480px){
 
+    body{
+
+        padding:15px;
+
+        align-items:center;
+
+        justify-content:center;
+
+        overflow-x:hidden;
+    }
+
     .container{
-        padding:20px;
+
+        width:100%;
+
+        max-width:100%;
+
+        padding:25px 20px;
+
+        border-radius:18px;
     }
 
     h1{
+
         font-size:24px;
     }
 
+    .tabs button{
+
+        font-size:14px;
+
+        padding:12px 10px;
+    }
+
+    input,
+    select{
+
+        font-size:16px;
+
+        padding:14px;
+    }
+
+    button.submit-btn{
+
+        font-size:16px;
+    }
 }
 
 </style>
@@ -240,14 +322,16 @@ button.submit-btn:hover{
 
     <div class="tabs">
 
-        <button class="active"
+        <button
+        class="active"
         onclick="showForm('signup')">
 
         Sign Up
 
         </button>
 
-        <button onclick="showForm('login')">
+        <button
+        onclick="showForm('login')">
 
         Login
 
@@ -255,20 +339,24 @@ button.submit-btn:hover{
 
     </div>
 
-    <!-- SIGNUP FORM -->
+    <!-- SIGNUP -->
 
-    <form id="signup" class="active">
+    <form
+    id="signup"
+    class="active">
 
         <div class="input-group">
 
             <label>Student Name</label>
 
-            <input 
+            <input
             type="text"
             id="name"
             placeholder="Enter your name">
 
-            <div class="error" id="nameError"></div>
+            <div
+            class="error"
+            id="nameError"></div>
 
         </div>
 
@@ -276,12 +364,14 @@ button.submit-btn:hover{
 
             <label>Roll Number</label>
 
-            <input 
+            <input
             type="text"
             id="roll"
             placeholder="Enter roll number">
 
-            <div class="error" id="rollError"></div>
+            <div
+            class="error"
+            id="rollError"></div>
 
         </div>
 
@@ -292,7 +382,7 @@ button.submit-btn:hover{
             <select id="department">
 
                 <option value="">
-                    Select Department
+                Select Department
                 </option>
 
                 <option>CSE</option>
@@ -303,7 +393,9 @@ button.submit-btn:hover{
 
             </select>
 
-            <div class="error" id="deptError"></div>
+            <div
+            class="error"
+            id="deptError"></div>
 
         </div>
 
@@ -314,7 +406,7 @@ button.submit-btn:hover{
             <select id="year">
 
                 <option value="">
-                    Select Year
+                Select Year
                 </option>
 
                 <option>1st Year</option>
@@ -324,19 +416,23 @@ button.submit-btn:hover{
 
             </select>
 
-            <div class="error" id="yearError"></div>
+            <div
+            class="error"
+            id="yearError"></div>
 
         </div>
 
-        <button type="submit" class="submit-btn">
+        <button
+        type="submit"
+        class="submit-btn">
 
-            Register
+        Register
 
         </button>
 
     </form>
 
-    <!-- LOGIN FORM -->
+    <!-- LOGIN -->
 
     <form id="login">
 
@@ -344,12 +440,14 @@ button.submit-btn:hover{
 
             <label>Student Name</label>
 
-            <input 
+            <input
             type="text"
             id="loginName"
             placeholder="Enter your name">
 
-            <div class="error" id="loginNameError"></div>
+            <div
+            class="error"
+            id="loginNameError"></div>
 
         </div>
 
@@ -357,16 +455,18 @@ button.submit-btn:hover{
 
             <label>Roll Number</label>
 
-            <input 
+            <input
             type="text"
             id="loginRoll"
             placeholder="Enter roll number">
 
-            <div class="error" id="loginRollError"></div>
+            <div
+            class="error"
+            id="loginRollError"></div>
 
         </div>
 
-        <button 
+        <button
         type="submit"
         class="submit-btn"
         id="loginBtn">
@@ -381,96 +481,129 @@ button.submit-btn:hover{
 
 <script>
 
+/* TAB SWITCH */
+
 function showForm(formId){
 
-    document.querySelectorAll("form")
+    document
+    .querySelectorAll("form")
     .forEach(form=>{
 
         form.classList.remove("active");
 
     });
 
-    document.querySelectorAll(".tabs button")
+    document
+    .querySelectorAll(".tabs button")
     .forEach(btn=>{
 
         btn.classList.remove("active");
 
     });
 
-    document.getElementById(formId)
+    document
+    .getElementById(formId)
     .classList.add("active");
 
-    event.target.classList.add("active");
+    event.target
+    .classList.add("active");
 }
-//hoover mouse
 
+/* 3D EFFECT ONLY DESKTOP */
 
+if(window.innerWidth > 768){
 
-document.addEventListener("mousemove",(e)=>{
+    document
+    .addEventListener(
+    "mousemove",
+    (e)=>{
 
-   let x = e.clientX / window.innerWidth;
-   let y = e.clientY / window.innerHeight;
+        let x =
+        e.clientX /
+        window.innerWidth;
 
-   document.querySelector(".container")
-   .style.transform = `
-   rotateY(${x*10}deg)
-   rotateX(${y*10}deg)
-   `;
+        let y =
+        e.clientY /
+        window.innerHeight;
 
-});
+        document
+        .querySelector(".container")
+        .style.transform =
+        `
+        rotateY(${x*10}deg)
+        rotateX(${y*10}deg)
+        `;
+    });
+}
 
+/* SIGNUP */
 
-/* SIGNUP VALIDATION */
-
-document.getElementById("signup")
-.addEventListener("submit",function(e){
+document
+.getElementById("signup")
+.addEventListener(
+"submit",
+function(e){
 
     e.preventDefault();
 
     let name =
-    document.getElementById("name")
+    document
+    .getElementById("name")
     .value.trim();
 
     let roll =
-    document.getElementById("roll")
+    document
+    .getElementById("roll")
     .value.trim();
 
     let department =
-    document.getElementById("department")
+    document
+    .getElementById("department")
     .value;
 
     let year =
-    document.getElementById("year")
+    document
+    .getElementById("year")
     .value;
 
     let valid = true;
 
-    document.getElementById("nameError")
+    document
+    .getElementById("nameError")
     .innerText="";
 
-    document.getElementById("rollError")
+    document
+    .getElementById("rollError")
     .innerText="";
 
-    document.getElementById("deptError")
+    document
+    .getElementById("deptError")
     .innerText="";
 
-    document.getElementById("yearError")
+    document
+    .getElementById("yearError")
     .innerText="";
 
     /* NAME */
 
     if(name===""){
 
-        document.getElementById("nameError")
-        .innerText="This field is mandatory";
+        document
+        .getElementById("nameError")
+        .innerText=
+        "This field is mandatory";
 
         valid=false;
     }
 
-    else if(!/^[A-Za-z ]+$/.test(name)){
+    else if(
+    !/^[A-Za-z ]+$/
+    .test(name)){
 
-        document.getElementById("nameError")
-        .innerText="Only alphabets allowed";
+        document
+        .getElementById("nameError")
+        .innerText=
+        "Only alphabets allowed";
 
         valid=false;
     }
@@ -479,16 +612,22 @@ document.getElementById("signup")
 
     if(roll===""){
 
-        document.getElementById("rollError")
-        .innerText="This field is mandatory";
+        document
+        .getElementById("rollError")
+        .innerText=
+        "This field is mandatory";
 
         valid=false;
     }
 
-    else if(!/^[0-9]+$/.test(roll)){
+    else if(
+    !/^[0-9]+$/
+    .test(roll)){
 
-        document.getElementById("rollError")
-        .innerText="Only numbers allowed";
+        document
+        .getElementById("rollError")
+        .innerText=
+        "Only numbers allowed";
 
         valid=false;
     }
@@ -497,8 +636,10 @@ document.getElementById("signup")
 
     if(department===""){
 
-        document.getElementById("deptError")
-        .innerText="Please select department";
+        document
+        .getElementById("deptError")
+        .innerText=
+        "Please select department";
 
         valid=false;
     }
@@ -507,153 +648,197 @@ document.getElementById("signup")
 
     if(year===""){
 
-        document.getElementById("yearError")
-        .innerText="Please select year";
+        document
+        .getElementById("yearError")
+        .innerText=
+        "Please select year";
 
         valid=false;
     }
 
     if(valid){
 
-        localStorage.setItem("studentName",name);
+        localStorage
+        .setItem(
+        "studentName",
+        name
+        );
 
-        localStorage.setItem("studentRoll",roll);
+        localStorage
+        .setItem(
+        "studentRoll",
+        roll
+        );
 
-        alert("Registration Successful ✅");
+        alert(
+        "Registration Successful ✅"
+        );
 
         showLogin();
     }
-
 });
 
 /* SHOW LOGIN */
 
 function showLogin(){
 
-    document.querySelectorAll("form")
+    document
+    .querySelectorAll("form")
     .forEach(form=>{
 
         form.classList.remove("active");
 
     });
 
-    document.getElementById("login")
+    document
+    .getElementById("login")
     .classList.add("active");
 
-    document.querySelectorAll(".tabs button")[0]
+    document
+    .querySelectorAll(".tabs button")[0]
     .classList.remove("active");
 
-    document.querySelectorAll(".tabs button")[1]
+    document
+    .querySelectorAll(".tabs button")[1]
     .classList.add("active");
 }
 
-/* LOGIN BUTTON RUN EFFECT */
+/* LOGIN BUTTON */
 
 const loginBtn =
-document.getElementById("loginBtn");
+document
+.getElementById("loginBtn");
 
-loginBtn.addEventListener("mouseover",function(){
+function moveButton(){
 
     let loginName =
-    document.getElementById("loginName")
+    document
+    .getElementById("loginName")
     .value.trim();
 
     let loginRoll =
-    document.getElementById("loginRoll")
+    document
+    .getElementById("loginRoll")
     .value.trim();
 
-    /* EMPTY FIELDS */
-
-    if(loginName === "" || loginRoll === ""){
+    if(
+    loginName === "" ||
+    loginRoll === ""
+    ){
 
         let x =
-        Math.random() * 250 - 125;
+        Math.random()
+        *150 - 75;
 
         let y =
-        Math.random() * 120 - 60;
+        Math.random()
+        *80 - 40;
 
         loginBtn.style.transform =
         `translate(${x}px, ${y}px)`;
-
     }
-
-    /* FILLED */
 
     else{
 
         loginBtn.style.transform =
         "translate(0px,0px)";
     }
+}
 
-});
+loginBtn
+.addEventListener(
+"mouseover",
+moveButton
+);
+
+loginBtn
+.addEventListener(
+"touchstart",
+moveButton
+);
 
 /* LOGIN VALIDATION */
 
-document.getElementById("login")
-.addEventListener("submit",function(e){
+document
+.getElementById("login")
+.addEventListener(
+"submit",
+function(e){
 
     e.preventDefault();
 
     let loginName =
-    document.getElementById("loginName")
+    document
+    .getElementById("loginName")
     .value.trim();
 
     let loginRoll =
-    document.getElementById("loginRoll")
+    document
+    .getElementById("loginRoll")
     .value.trim();
 
     let valid = true;
 
-    document.getElementById("loginNameError")
+    document
+    .getElementById("loginNameError")
     .innerText="";
 
-    document.getElementById("loginRollError")
+    document
+    .getElementById("loginRollError")
     .innerText="";
 
     if(loginName===""){
 
-        document.getElementById("loginNameError")
-        .innerText="This field is mandatory";
+        document
+        .getElementById("loginNameError")
+        .innerText=
+        "This field is mandatory";
 
         valid=false;
     }
 
     if(loginRoll===""){
 
-        document.getElementById("loginRollError")
-        .innerText="This field is mandatory";
+        document
+        .getElementById("loginRollError")
+        .innerText=
+        "This field is mandatory";
 
         valid=false;
     }
 
     let savedName =
-    localStorage.getItem("studentName");
+    localStorage
+    .getItem("studentName");
 
     let savedRoll =
-    localStorage.getItem("studentRoll");
+    localStorage
+    .getItem("studentRoll");
 
     if(valid){
 
-        if(loginName===savedName &&
-        loginRoll===savedRoll){
+        if(
+        loginName===savedName &&
+        loginRoll===savedRoll
+        ){
 
-            localStorage.setItem(
+            localStorage
+            .setItem(
             "loginStudent",
             loginName
             );
 
             window.location.href =
             "welcome.html";
-
         }
 
         else{
 
-            alert("Invalid Login Details ❌");
+            alert(
+            "Invalid Login Details ❌"
+            );
         }
-
     }
-
 });
 
 </script>
