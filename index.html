@@ -610,28 +610,25 @@ function(e){
 
     /* ROLL */
 
-    if(roll===""){
+if (roll === "") {
 
-        document
-        .getElementById("rollError")
-        .innerText=
-        "This field is mandatory";
+    document
+    .getElementById("rollError")
+    .innerText =
+    "This field is mandatory";
 
-        valid=false;
-    }
+    valid = false;
+}
 
-    else if(
-    !/^[0-9]+$/
-    .test(roll)){
+else if (!/^[0-9]{6}$/.test(roll)) {
 
-        document
-        .getElementById("rollError")
-        .innerText=
-        "Only numbers allowed";
+    document
+    .getElementById("rollError")
+    .innerText =
+    "Roll number must contain exactly 6 digits";
 
-        valid=false;
-    }
-
+    valid = false;
+}
     /* DEPARTMENT */
 
     if(department===""){
